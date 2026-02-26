@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mzansi Biz — Township Business Directory</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-inner">
+      <div class="logo-wrap">
+        <span class="logo-tag">ZA</span>
+        <div class="logo-text">
+          <span class="logo-main">MZANSI<em>BIZ</em></span>
+          <span class="logo-sub">Township Business Directory</span>
+        </div>
+      </div>
+      <div class="header-right">
+        <span class="header-stat"><strong id="totalCount">48</strong> businesses listed</span>
+        <a href="#submit" class="header-cta">+ List Your Business</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-text">MZANSI</div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-kicker">Supporting local. Building community.</div>
+        <h1 class="hero-title">Find businesses<br>in your<br><span>neighbourhood.</span></h1>
+        <p class="hero-desc">The directory for spaza shops, salons, tutors, mechanics, caterers and every hustle in between — right here in your community.</p>
+      </div>
+      <div class="hero-right">
+        <div class="hero-stats">
+          <div class="stat-block">
+            <span class="stat-num">48</span>
+            <span class="stat-label">Businesses</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-block">
+            <span class="stat-num">8</span>
+            <span class="stat-label">Categories</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-block">
+            <span class="stat-num">6</span>
+            <span class="stat-label">Townships</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEARCH BAR -->
+    <div class="search-wrap">
+      <div class="search-box">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="searchInput" placeholder="Search by name, service, or area..." oninput="filterBusinesses()" />
+        <button class="search-clear" id="searchClear" onclick="clearSearch()" style="display:none">✕</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FILTERS -->
+  <section class="filters-section">
+    <div class="filters-inner">
+      <div class="filters-label">FILTER BY:</div>
+      <div class="filter-group" id="categoryFilters">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter(this, 'category', 'all')">All</button>
+        <button class="filter-btn" data-filter="food" onclick="setFilter(this, 'category', 'food')">🍖 Food & Catering</button>
+        <button class="filter-btn" data-filter="beauty" onclick="setFilter(this, 'category', 'beauty')">💇🏾 Hair & Beauty</button>
+        <button class="filter-btn" data-filter="education" onclick="setFilter(this, 'category', 'education')">📚 Tutoring</button>
+        <button class="filter-btn" data-filter="retail" onclick="setFilter(this, 'category', 'retail')">🛒 Retail & Spaza</button>
+        <button class="filter-btn" data-filter="tech" onclick="setFilter(this, 'category', 'tech')">📱 Tech & Repairs</button>
+        <button class="filter-btn" data-filter="transport" onclick="setFilter(this, 'category', 'transport')">🚗 Transport</button>
+        <button class="filter-btn" data-filter="health" onclick="setFilter(this, 'category', 'health')">💊 Health & Wellness</button>
+        <button class="filter-btn" data-filter="creative" onclick="setFilter(this, 'category', 'creative')">🎨 Creative Services</button>
+      </div>
+
+      <div class="filters-label area-label">AREA:</div>
+      <div class="filter-group" id="areaFilters">
+        <button class="filter-btn active" data-filter="all" onclick="setFilter(this, 'area', 'all')">All Areas</button>
+        <button class="filter-btn" data-filter="Soweto" onclick="setFilter(this, 'area', 'Soweto')">Soweto</button>
+        <button class="filter-btn" data-filter="Alexandra" onclick="setFilter(this, 'area', 'Alexandra')">Alexandra</button>
+        <button class="filter-btn" data-filter="Khayelitsha" onclick="setFilter(this, 'area', 'Khayelitsha')">Khayelitsha</button>
+        <button class="filter-btn" data-filter="Tembisa" onclick="setFilter(this, 'area', 'Tembisa')">Tembisa</button>
+        <button class="filter-btn" data-filter="Umlazi" onclick="setFilter(this, 'area', 'Umlazi')">Umlazi</button>
+        <button class="filter-btn" data-filter="Mamelodi" onclick="setFilter(this, 'area', 'Mamelodi')">Mamelodi</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESULTS BAR -->
+  <div class="results-bar">
+    <div class="results-bar-inner">
+      <span class="results-count" id="resultsCount">Showing all 48 businesses</span>
+      <div class="sort-wrap">
+        <label>Sort:</label>
+        <select id="sortSelect" onchange="filterBusinesses()">
+          <option value="name">A – Z</option>
+          <option value="category">Category</option>
+          <option value="area">Area</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <!-- DIRECTORY GRID -->
+  <main class="directory">
+    <div class="biz-grid" id="bizGrid"></div>
+    <div class="no-results" id="noResults" style="display:none">
+      <span class="no-results-icon">🔍</span>
+      <p>No businesses found.<br>Try a different search or filter.</p>
+    </div>
+  </main>
+
+  <!-- SUBMIT SECTION -->
+  <section class="submit-section" id="submit">
+    <div class="submit-inner">
+      <div class="submit-left">
+        <div class="submit-kicker">Own a business?</div>
+        <h2 class="submit-title">Get listed.<br>Get found.</h2>
+        <p>Add your business to the directory and reach customers in your community. Free to list. Always.</p>
+      </div>
+      <div class="submit-right">
+        <div class="submit-form">
+          <input type="text" placeholder="Business name" class="form-input" />
+          <input type="text" placeholder="Category (e.g. Hair & Beauty)" class="form-input" />
+          <input type="text" placeholder="Area / Township" class="form-input" />
+          <input type="text" placeholder="Phone number" class="form-input" />
+          <textarea placeholder="Briefly describe what you offer..." class="form-input form-textarea"></textarea>
+          <button class="form-submit" onclick="handleSubmit(this)">Submit Your Business →</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">MZANSI<em>BIZ</em></div>
+      <p>Built to support township economies. Every business matters.</p>
+      <span class="footer-credit">Built by Nomcebo Mtshali · HTML · CSS · JavaScript</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
