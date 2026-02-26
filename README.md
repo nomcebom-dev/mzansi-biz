@@ -2,7 +2,7 @@
 
 A searchable, filterable directory of small businesses across South African townships. Built to make local businesses visible and help communities find services near them. Pure HTML, CSS, and JavaScript — no frameworks, no dependencies.
 
-**Live Demo:** [your-username.github.io/mzansi-biz](https://your-username.github.io/mzansi-biz)
+**Live Demo:** (https://nomcebom-dev.github.io/mzansi-biz)
 
 ---
 
@@ -61,19 +61,6 @@ No libraries. No build tools. No APIs. Open `index.html` in any browser.
 
 ---
 
-## 🚀 How to Run
-
-```bash
-git clone https://github.com/your-username/mzansi-biz.git
-open index.html
-```
-
-Deploy on **GitHub Pages** in under 60 seconds:
-1. Push to GitHub
-2. Settings → Pages → Source: `main` branch
-3. Your live link: `https://your-username.github.io/mzansi-biz`
-
----
 
 ## 💡 What I Learned
 
@@ -100,4 +87,4 @@ Deploy on **GitHub Pages** in under 60 seconds:
 **Nomcebo Langelihle Mtshali**  
 Junior Developer · Johannesburg, South Africa  
 📧 nomcebomtshali131@gmail.com  
-🔗 [Portfolio](https://your-username.github.io) · [LinkedIn](https://linkedin.com/in/nomcebo-mtshali) · [GitHub](https://github.com/your-username)
+🔗 [Portfolio](https://your-username.github.io)  · [GitHub](https://github.com/your-username)
