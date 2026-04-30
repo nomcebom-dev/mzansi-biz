@@ -1,10 +1,6 @@
-/* ═══════════════════════════════════════════════════
-   MZANSI BIZ — TOWNSHIP BUSINESS DIRECTORY
-   Pure JavaScript · No dependencies
-   Built by Nomcebo Mtshali
-═══════════════════════════════════════════════════ */
 
-/* ─── BUSINESS DATA ───────────────────────────────── */
+
+/* BUSINESS DATA */
 const BUSINESSES = [
   // FOOD & CATERING
   { id:1, name:"Mama Thandi's Kitchen", category:"food", emoji:"🍖", desc:"Traditional South African home-cooked meals. Pap, chakalaka, braai platters and catering for events.", area:"Soweto", address:"Vilakazi St, Orlando West", phone:"076 234 5678", hours:"Mon–Sat 7am–7pm", open:true },
@@ -73,7 +69,7 @@ const BUSINESSES = [
   { id:48, name:"UmlazI Skills Academy", category:"education", emoji:"🔨", desc:"Plumbing, tiling, welding and electrical short courses. SETA-accredited certificates issued.", area:"Umlazi", address:"P Section Community Centre", phone:"031 907 6543", hours:"Mon–Fri 8am–4pm", open:true },
 ];
 
-/* ─── CATEGORY COLOURS ────────────────────────────── */
+/* CATEGORY COLOURS */
 const CATEGORY_COLORS = {
   food:       '#e8440a',
   beauty:     '#d4145a',
@@ -85,11 +81,11 @@ const CATEGORY_COLORS = {
   creative:   '#b5360a',
 };
 
-/* ─── STATE ───────────────────────────────────────── */
+/*STATE*/
 let activeCategory = 'all';
 let activeArea = 'all';
 
-/* ─── FILTER STATE ────────────────────────────────── */
+/*FILTER STATE*/
 function setFilter(btn, type, value) {
   if (type === 'category') {
     activeCategory = value;
@@ -108,7 +104,7 @@ function clearSearch() {
   filterBusinesses();
 }
 
-/* ─── MAIN FILTER + RENDER ────────────────────────── */
+/*MAIN FILTER + RENDER*/
 function filterBusinesses() {
   const query = document.getElementById('searchInput').value.toLowerCase().trim();
   const sort = document.getElementById('sortSelect').value;
@@ -139,7 +135,7 @@ function filterBusinesses() {
   updateResultsCount(results.length);
 }
 
-/* ─── RENDER ──────────────────────────────────────── */
+/*RENDER*/
 function renderGrid(businesses) {
   const grid = document.getElementById('bizGrid');
   const noResults = document.getElementById('noResults');
@@ -189,7 +185,7 @@ function updateResultsCount(count) {
     : `Showing ${count} of ${total} businesses`;
 }
 
-/* ─── CARD CLICK (simple highlight) ─────────────────── */
+/*CARD CLICK (simple highlight)*/
 function openCard(id) {
   const biz = BUSINESSES.find(b => b.id === id);
   if (!biz) return;
@@ -199,7 +195,7 @@ function openCard(id) {
   cards.forEach(c => c.style.outline = '');
 }
 
-/* ─── SUBMIT FORM ─────────────────────────────────── */
+/*SUBMIT FORM*/
 function handleSubmit(btn) {
   const inputs = btn.closest('.submit-form').querySelectorAll('.form-input');
   const name = inputs[0].value.trim();
@@ -216,7 +212,7 @@ function handleSubmit(btn) {
   inputs.forEach(i => { i.value = ''; i.disabled = true; });
 }
 
-/* ─── INIT ────────────────────────────────────────── */
+/*INIT*/
 document.addEventListener('DOMContentLoaded', () => {
   filterBusinesses();
   document.getElementById('totalCount').textContent = BUSINESSES.length;
