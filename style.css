@@ -1,4 +1,4 @@
-/* ─── TOKENS ─────────────────────────────────────── */
+/*TOKENS*/
 :root {
   --cream:      #f5f0e8;
   --cream-2:    #ede7d9;
@@ -18,7 +18,7 @@
   --font-body:    'Archivo', sans-serif;
 }
 
-/* ─── RESET ──────────────────────────────────────── */
+/*RESET*/
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
@@ -34,7 +34,7 @@ body {
 a { color: inherit; text-decoration: none; }
 strong { font-weight: 700; }
 
-/* ─── HEADER ─────────────────────────────────────── */
+/*HEADER*/
 .header {
   background: var(--black);
   color: var(--cream);
@@ -124,7 +124,7 @@ strong { font-weight: 700; }
   transform: translateY(-1px);
 }
 
-/* ─── HERO ───────────────────────────────────────── */
+/*HERO*/
 .hero {
   background: var(--black);
   color: var(--cream);
@@ -282,7 +282,7 @@ strong { font-weight: 700; }
 
 .search-clear:hover { opacity: 1; color: var(--orange); }
 
-/* ─── FILTERS ────────────────────────────────────── */
+/*FILTERS*/
 .filters-section {
   background: var(--cream-2);
   border-bottom: 2px solid var(--black);
@@ -339,7 +339,7 @@ strong { font-weight: 700; }
   color: var(--cream);
 }
 
-/* ─── RESULTS BAR ────────────────────────────────── */
+/*RESULTS BAR*/
 .results-bar {
   background: var(--cream);
   border-bottom: 1px solid rgba(13,13,13,0.1);
@@ -379,7 +379,7 @@ strong { font-weight: 700; }
   color: var(--black);
 }
 
-/* ─── DIRECTORY GRID ─────────────────────────────── */
+/*DIRECTORY GRID*/
 .directory {
   max-width: 1400px;
   margin: 0 auto;
@@ -528,7 +528,7 @@ strong { font-weight: 700; }
 .no-results-icon { font-size: 48px; display: block; margin-bottom: 16px; }
 .no-results p { font-size: 16px; line-height: 1.8; }
 
-/* ─── SUBMIT ─────────────────────────────────────── */
+/*SUBMIT*/
 .submit-section {
   background: var(--orange);
   color: var(--cream);
@@ -612,7 +612,7 @@ strong { font-weight: 700; }
   color: var(--black);
 }
 
-/* ─── FOOTER ─────────────────────────────────────── */
+/*FOOTER*/
 .footer {
   background: var(--black);
   color: var(--cream);
@@ -650,7 +650,7 @@ strong { font-weight: 700; }
   text-transform: uppercase;
 }
 
-/* ─── RESPONSIVE ─────────────────────────────────── */
+/*RESPONSIVE*/
 @media (max-width: 1024px) {
   .hero-content { grid-template-columns: 1fr; }
   .hero-stats { flex-direction: row; }
